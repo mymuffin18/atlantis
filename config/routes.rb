@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :admins,
+  controllers: {
+    sessions: 'api/v1/admin_sessions'
+  }, defaults: {format: :json},
+  :skip => [:registrations]
+
   devise_for :users,
   controllers: {
     sessions: 'api/v1/sessions',
