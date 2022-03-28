@@ -15,7 +15,21 @@ module Api
         render json: serialize_user(user), status: :ok
       end
 
+      def update
+        user = User.find(params[:id])
+
+        if user.update(update_params)
+          render json: serialize_user(user), status: :ok
+        else
+          render json: user.errors, status: :unprocessable_entity
+        end
+      end
+
       private
+
+      def update_params
+        params.permit(:first_name, :last_name, :password, :profile_pic)
+      end
 
       def serialize_user(user)
         {

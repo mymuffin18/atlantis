@@ -18,6 +18,7 @@ gem 'hamlit-rails'
 gem 'devise-jwt'
 gem 'rack-cors'
 gem "image_processing"
+gem "aws-sdk-s3", require: false
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
