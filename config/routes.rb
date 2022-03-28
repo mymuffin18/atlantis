@@ -16,7 +16,11 @@ Rails.application.routes.draw do
     namespace :v1 do
     resources :disasters, only: [:index, :show, :create, :update, :destroy]
     resources :members, only: [:index, :show, :update]
+<<<<<<< HEAD
     resources :locations, only: [:index, :show, :create, :update, :destroy]
+=======
+    resources :disaster_reports, only: [:index, :create]
+>>>>>>> adds disaster_report route
     end
   end
 end
