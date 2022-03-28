@@ -4,7 +4,7 @@ require 'devise/jwt/test_helpers'
 RSpec.describe 'Disasters', type: :request do
   let(:auth_headers) do
     admin = create(:admin)
-    headers = { 'Accept' => 'applucation/json', 'Content-type' => 'applicarion/json' }
+    headers = { 'Accept' => 'application/json', 'Content-type' => 'application/json' }
     Devise::JWT::TestHelpers.auth_headers(headers, admin)
   end
 
