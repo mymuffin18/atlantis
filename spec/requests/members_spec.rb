@@ -24,4 +24,14 @@ RSpec.describe 'Members', type: :request do
       expect(response).to have_http_status(:ok)
     end
   end
+
+  describe 'PUT /members/:id' do
+    let!(:user) { User.create(first_name: 'first', last_name: 'last', email: 'first@example.com', password: '123456') }
+
+    it 'updates the user' do
+      put "/api/v1/members/#{user.id}", params: { first_name: 'josh' }.to_json, headers: auth_headers
+
+      expect(response).to have_http_status(:ok)
+    end
+  end
 end

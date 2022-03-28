@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
     resources :disasters, only: [:index, :show, :create, :update, :destroy]
-    resources :members, only: [:index, :show]
+    resources :members, only: [:index, :show, :update]
     end
   end
 end
