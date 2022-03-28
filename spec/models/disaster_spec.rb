@@ -8,12 +8,12 @@ RSpec.describe Disaster, type: :model do
     disaster.avatar.attach(io: File.open('app/assets/images/default-profile.jpg'), filename: 'default-profile.jpg', content_type: 'image/jpg')
 
     expect(disaster).not_to be_valid
-  end 
+  end
 
   it 'has a url attached' do
     disaster.disaster_type = 'disaster_type'
     disaster.avatar = nil
 
     expect(disaster).not_to be_valid
-  end 
+  end
 end
