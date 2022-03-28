@@ -11,7 +11,11 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2022_03_28_144143) do
+=======
+ActiveRecord::Schema.define(version: 2022_03_28_144347) do
+>>>>>>> adds disaster_report model
 =======
 ActiveRecord::Schema.define(version: 2022_03_28_144347) do
 >>>>>>> adds disaster_report model
@@ -116,7 +120,12 @@ ActiveRecord::Schema.define(version: 2022_03_28_144347) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
 <<<<<<< HEAD
+<<<<<<< HEAD
   add_foreign_key "locations", "users"
+=======
+  add_foreign_key "disaster_reports", "disasters"
+  add_foreign_key "disaster_reports", "users"
+>>>>>>> adds disaster_report model
 =======
   add_foreign_key "disaster_reports", "disasters"
   add_foreign_key "disaster_reports", "users"
