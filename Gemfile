@@ -19,10 +19,14 @@ gem 'devise-jwt'
 gem 'rack-cors'
 gem "image_processing"
 <<<<<<< HEAD
+<<<<<<< HEAD
 gem "aws-sdk-s3", require: false
 =======
 gem 'validates_timeliness', '~> 6.0.0.beta2'
 >>>>>>> adds disaster_report model
+=======
+gem 'validates_timeliness', '~> 6.0.0.beta2'
+>>>>>>> 6d9d56c6f80be991414cb160e69e384f20989f1d
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
