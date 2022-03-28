@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2022_03_28_144143) do
+=======
+ActiveRecord::Schema.define(version: 2022_03_28_144347) do
+>>>>>>> adds disaster_report model
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +61,22 @@ ActiveRecord::Schema.define(version: 2022_03_28_144143) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "disaster_reports", force: :cascade do |t|
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "date_occured"
+    t.bigint "disaster_id", null: false
+    t.string "disaster_level"
+    t.string "description"
+    t.bigint "user_id", null: false
+    t.string "approved_by"
+    t.boolean "approved"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["disaster_id"], name: "index_disaster_reports_on_disaster_id"
+    t.index ["user_id"], name: "index_disaster_reports_on_user_id"
+  end
+
   create_table "disasters", force: :cascade do |t|
     t.string "disaster_type"
     t.datetime "created_at", precision: 6, null: false
@@ -95,5 +115,10 @@ ActiveRecord::Schema.define(version: 2022_03_28_144143) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+<<<<<<< HEAD
   add_foreign_key "locations", "users"
+=======
+  add_foreign_key "disaster_reports", "disasters"
+  add_foreign_key "disaster_reports", "users"
+>>>>>>> adds disaster_report model
 end
