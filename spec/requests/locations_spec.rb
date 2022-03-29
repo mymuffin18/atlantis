@@ -1,16 +1,16 @@
 require 'rails_helper'
 require 'devise/jwt/test_helpers'
 
-RSpec.describe "Locations", type: :request do
+RSpec.describe 'Locations', type: :request do
   let(:auth_headers) do
     user = create(:user)
     headers = { 'Accept' => 'application/json', 'Content-type' => 'application/json' }
     Devise::JWT::TestHelpers.auth_headers(headers, user)
   end
 
-  let(:user){User.create(first_name: 'josh', last_name: 'uy', email: 'josh@email.com', password: '123456')}
+  let(:user) { User.create(first_name: 'josh', last_name: 'uy', email: 'josh@email.com', password: '123456') }
 
-  describe "GET /locations" do
+  describe 'GET /locations' do
     it 'returns all pin locations of the current user' do
       get '/api/v1/locations', headers: auth_headers
       expect(response).to have_http_status(:ok)
@@ -37,7 +37,7 @@ RSpec.describe "Locations", type: :request do
     let!(:location) { Location.create(locname: 'location name', latitude: 0, longitude: 0, user: user) }
 
     it 'updates location name' do
-      put "/api/v1/locations/#{location.id}", params: { locname: 'location name'}.to_json, headers: auth_headers
+      put "/api/v1/locations/#{location.id}", params: { locname: 'location name' }.to_json, headers: auth_headers
       expect(response).to have_http_status(:ok)
     end
   end
@@ -50,5 +50,4 @@ RSpec.describe "Locations", type: :request do
       expect(response).to have_http_status(:no_content)
     end
   end
-
 end

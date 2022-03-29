@@ -39,5 +39,4 @@ RSpec.describe Location, type: :model do
 
     expect(location).not_to be_valid
   end
-
 end
