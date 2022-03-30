@@ -12,6 +12,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2022_03_28_144143) do
 =======
 ActiveRecord::Schema.define(version: 2022_03_28_144347) do
@@ -19,6 +20,9 @@ ActiveRecord::Schema.define(version: 2022_03_28_144347) do
 =======
 ActiveRecord::Schema.define(version: 2022_03_28_144347) do
 >>>>>>> adds disaster_report model
+=======
+ActiveRecord::Schema.define(version: 2022_03_28_144347) do
+>>>>>>> 64f2e87795baf593fb2dbdb40d1d69a0d69b619f
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,6 +125,7 @@ ActiveRecord::Schema.define(version: 2022_03_28_144347) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   add_foreign_key "locations", "users"
 =======
   add_foreign_key "disaster_reports", "disasters"
@@ -130,4 +135,8 @@ ActiveRecord::Schema.define(version: 2022_03_28_144347) do
   add_foreign_key "disaster_reports", "disasters"
   add_foreign_key "disaster_reports", "users"
 >>>>>>> adds disaster_report model
+=======
+  add_foreign_key "disaster_reports", "disasters"
+  add_foreign_key "disaster_reports", "users"
+>>>>>>> 64f2e87795baf593fb2dbdb40d1d69a0d69b619f
 end

@@ -17,10 +17,14 @@ Rails.application.routes.draw do
     resources :disasters, only: [:index, :show, :create, :update, :destroy]
     resources :members, only: [:index, :show, :update]
 <<<<<<< HEAD
+<<<<<<< HEAD
     resources :locations, only: [:index, :show, :create, :update, :destroy]
 =======
     resources :disaster_reports, only: [:index, :create]
 >>>>>>> adds disaster_report route
+=======
+    resources :disaster_reports, only: [:index, :create]
+>>>>>>> 64f2e87795baf593fb2dbdb40d1d69a0d69b619f
     end
   end
 end
