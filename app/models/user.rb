@@ -2,7 +2,8 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   has_one_attached :profile_pic
-
+  has_many :disaster_reports
+  
   after_commit :add_default_profile_pic, on: %i[create update]
 
   # Include default devise modules. Others available are:

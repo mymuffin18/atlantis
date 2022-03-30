@@ -1,6 +1,8 @@
 module Api
   module V1
     class DisasterReportsController < ApplicationController
+      before_action :authenticate_user!
+
       def index
         disaster_reports = DisasterReport.includes(:user)
 
@@ -8,7 +10,7 @@ module Api
       end
 
       def create
-        disaster_report = DisasterReport.new(report_params)
+        disaster_report = current_user.disaster_reports.build(report_params)
         if disaster_report.save
           render json: disaster_report, status: :created
         else
