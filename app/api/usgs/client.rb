@@ -2,8 +2,6 @@ require 'faraday'
 
 module Usgs
   class Client
-    @client = Request.new
-
     def self.earthquake_data
       response = Faraday.get('https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minmagnitude=5')
 
