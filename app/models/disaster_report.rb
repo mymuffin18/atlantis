@@ -7,5 +7,6 @@ class DisasterReport < ApplicationRecord
   validates :description, presence: true
   validates_datetime :date_occured
 
+  acts_as_votable
   has_many_attached :images
 end

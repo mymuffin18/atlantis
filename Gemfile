@@ -18,6 +18,7 @@ gem 'hamlit-rails'
 gem 'devise-jwt'
 gem 'rack-cors'
 gem "image_processing"
+gem 'acts_as_votable'
 
 gem "aws-sdk-s3", require: false
 gem 'validates_timeliness', '~> 6.0.0.beta2'
