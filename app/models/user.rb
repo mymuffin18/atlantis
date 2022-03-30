@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   has_many :locations, dependent: :destroy
 
+  has_many :disaster_reports, dependent: :destroy
+
   after_commit :add_default_profile_pic, on: %i[create update]
 
   # Include default devise modules. Others available are:
@@ -13,6 +15,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :jwt_authenticatable,
          jwt_revocation_strategy: JwtDenylist
+
+  acts_as_voter
 
   def profile_pic_url
     url_for(profile_pic)

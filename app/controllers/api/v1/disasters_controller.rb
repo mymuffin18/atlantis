@@ -37,6 +37,7 @@ module Api
 
       def destroy
         disaster = Disaster.find(params[:id])
+        disaster.avatar.purge
         disaster.destroy!
         head :no_content
       end

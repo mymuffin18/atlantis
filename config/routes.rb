@@ -17,6 +17,9 @@ Rails.application.routes.draw do
     resources :disasters, only: [:index, :show, :create, :update, :destroy]
     resources :members, only: [:index, :show, :update]
     resources :locations, only: [:index, :show, :create, :update, :destroy]
+    resources :disaster_reports, only: [:index, :create, :show, :update, :destroy]
+    get 'pending_reports/', to: 'disaster_reports#pending_reports'
+    put 'disaster_reports/:id/vote', to: 'disaster_reports#vote'
     end
   end
 end
