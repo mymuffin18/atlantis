@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   has_many :locations, dependent: :destroy
 
+  has_many :disaster_reports, dependent: :destroy
+  
   after_commit :add_default_profile_pic, on: %i[create update]
 
   # Include default devise modules. Others available are:
