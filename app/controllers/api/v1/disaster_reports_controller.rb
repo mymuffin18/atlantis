@@ -57,11 +57,10 @@ module Api
         report = DisasterReport.find(params[:id])
         if current_user.voted_for? report
           report.unliked_by current_user
-          render json: serialize_report_with_votes(report), status: :ok
         else
           report.liked_by current_user
-          render json: serialize_report_with_votes(report), status: :ok
         end
+        render json: serialize_report_with_votes(report), status: :ok
       end
 
       private
@@ -103,9 +102,7 @@ module Api
 
       def serialize_report_with_votes(report)
         is_voted = false
-        if current_user.voted_for? report
-          is_voted = true
-        end
+        is_voted = true if current_user.voted_for? report
         imgs = []
         report.images.each do |img|
           imgs.push(url_for(img))

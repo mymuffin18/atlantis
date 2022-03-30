@@ -17,7 +17,7 @@ class User < ApplicationRecord
          jwt_revocation_strategy: JwtDenylist
 
   acts_as_voter
-  
+
   def profile_pic_url
     url_for(profile_pic)
   end

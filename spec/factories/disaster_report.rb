@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :disaster_report do
-    user factory: :user_2
+    user factory: :user_two
     disaster factory: :disaster
     disaster_level { 'Danger' }
     longitude { 10.50 }
@@ -13,7 +13,7 @@ FactoryBot.define do
   end
 
   factory :pending_report, class: 'DisasterReport' do
-    user factory: :user_2
+    user factory: :user_two
     disaster factory: :disaster
     disaster_level { 'Danger' }
     longitude { 10.50 }
