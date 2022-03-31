@@ -36,6 +36,7 @@ module Api
           report.approved = true
           report.approved_by = "#{current_admin.first_name} #{current_admin.last_name}"
         end
+        report.save
 
         render json: serialize_report(report), status: :ok
       end
