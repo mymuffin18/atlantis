@@ -21,6 +21,9 @@ Rails.application.routes.draw do
     get 'pending_reports/', to: 'disaster_reports#pending_reports'
     put 'disaster_reports/:id/vote', to: 'disaster_reports#vote'
     resources :earthquakes, only: [:index]
+    resources :admin_reports, only: [:index, :show, :destroy]
+    put 'admin_reports/:id/approve', to: 'admin_reports#approve'
+    get 'admins/pending_reports', to: 'admin_reports#pending_reports'
     end
   end
 end
