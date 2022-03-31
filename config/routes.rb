@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :disaster_reports, only: [:index, :create, :show, :update, :destroy]
     get 'pending_reports/', to: 'disaster_reports#pending_reports'
     put 'disaster_reports/:id/vote', to: 'disaster_reports#vote'
+    resources :earthquakes, only: [:index]
     end
   end
 end

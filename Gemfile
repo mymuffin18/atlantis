@@ -23,6 +23,7 @@ gem 'acts_as_votable'
 gem "aws-sdk-s3", require: false
 gem 'validates_timeliness', '~> 6.0.0.beta2'
 gem 'dotenv-rails'
+gem 'faraday'
 
 
 group :development, :test do
