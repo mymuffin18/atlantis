@@ -21,7 +21,7 @@ module Api
         disaster_report = current_user.disaster_reports.build(report_params)
         disaster_report.images.attach(params[:images])
         if disaster_report.save
-          render json: disaster_report, status: :created
+          render json: serialize_report_with_votes(disaster_report), status: :created
         else
           render json: disaster_report.errors, status: :unprocessable_entity
         end
