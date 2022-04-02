@@ -7,7 +7,7 @@ module Api
         disaster_reports = DisasterReport.includes(:user).where(approved: true)
         reports = []
         disaster_reports.each do |report|
-          reports.push(serialize_disaster_report(report))
+          reports.push(serialize_report_with_votes(report))
         end
         render json: reports, status: :ok
       end
@@ -133,6 +133,7 @@ module Api
           disaster_level: report.disaster_level,
           description: report.description,
           approved_by: report.approved_by,
+          approved: report.approved,
           user: {
             id: report.user.id,
             fullname: "#{report.user.first_name} #{report.user.last_name}",

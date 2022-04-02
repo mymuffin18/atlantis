@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     put 'admin_reports/:id/approve', to: 'admin_reports#approve'
     get 'admins/pending_reports', to: 'admin_reports#pending_reports'
     get 'users/disasters', to: 'disaster_reports#disaster_types'
+    resources :users, only: [:index]
     end
   end
 end
