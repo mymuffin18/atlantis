@@ -63,6 +63,16 @@ module Api
         render json: serialize_report_with_votes(report), status: :ok
       end
 
+      def disaster_types
+        disasters = Disaster.all
+
+        arr = []
+        disasters.each do |d|
+          arr.push(serialize_disaster(d))
+        end
+        render json: arr, status: :ok
+      end
+
       private
 
       def report_params
@@ -97,6 +107,14 @@ module Api
             disaster_type: report.disaster.disaster_type,
             avatar: url_for(report.disaster.avatar)
           }
+        }
+      end
+
+      def serialize_disaster(disaster)
+        {
+          id: disaster.id,
+            disaster_type: disaster.disaster_type,
+            avatar: url_for(disaster.avatar)
         }
       end
 
