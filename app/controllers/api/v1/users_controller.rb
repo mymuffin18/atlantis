@@ -16,7 +16,10 @@ module Api
         {
           id: user.id,
             first_name: user.first_name,
-            last_name: user.last_name
+            last_name: user.last_name,
+            email: user.email,
+            num_pending_report: user.disaster_reports.where(approved: false).count,
+            num_approved_report: user.disaster_reports.where(approved: true).count
         }
       end
     end
