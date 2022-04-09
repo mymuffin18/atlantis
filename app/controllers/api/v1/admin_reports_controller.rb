@@ -66,7 +66,8 @@ module Api
           user: {
             id: report.user.id,
             fullname: "#{report.user.first_name} #{report.user.last_name}",
-            profile_pic: url_for(report.user.profile_pic)
+            profile_pic: url_for(report.user.profile_pic),
+            warning: report.user.warning
           },
           images: imgs,
           disaster: {

@@ -18,6 +18,7 @@ module Api
       end
 
       def create
+        render json: { message: 'sorry you are temporarily suspended for spamming wrong reports' }, status: :forbidden if current_user.warning == 3
         disaster_report = current_user.disaster_reports.build(report_params)
         disaster_report.images.attach(params[:images])
         if disaster_report.save
