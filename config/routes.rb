@@ -26,6 +26,8 @@ Rails.application.routes.draw do
     get 'admins/pending_reports', to: 'admin_reports#pending_reports'
     get 'users/disasters', to: 'disaster_reports#disaster_types'
     resources :users, only: [:index]
+    put 'users/add_warning/:id', to: 'users#add_warning'
+    put 'users/clear_warning/:id', to: 'users#clear_warning'
     end
   end
 end
