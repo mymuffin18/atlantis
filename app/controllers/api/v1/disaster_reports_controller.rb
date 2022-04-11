@@ -18,13 +18,16 @@ module Api
       end
 
       def create
-        render json: { message: 'sorry you are temporarily suspended for spamming wrong reports' }, status: :forbidden if current_user.warning == 3
-        disaster_report = current_user.disaster_reports.build(report_params)
-        disaster_report.images.attach(params[:images])
-        if disaster_report.save
-          render json: serialize_report_with_votes(disaster_report), status: :created
+        if current_user.warning >= 3
+          render json: { message: 'sorry you are temporarily suspended for spamming wrong reports' }, status: :forbidden
         else
-          render json: disaster_report.errors, status: :unprocessable_entity
+          disaster_report = current_user.disaster_reports.build(report_params)
+          disaster_report.images.attach(params[:images])
+          if disaster_report.save
+            render json: serialize_report_with_votes(disaster_report), status: :created
+          else
+            render json: disaster_report.errors, status: :unprocessable_entity
+          end
         end
       end
 
