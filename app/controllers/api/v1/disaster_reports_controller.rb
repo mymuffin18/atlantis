@@ -4,7 +4,7 @@ module Api
       before_action :authenticate_user!
 
       def index
-        disaster_reports = DisasterReport.includes(:user).where(approved: true)
+        disaster_reports = DisasterReport.includes(:user).where(approved: true).where('date_occured > ?', 30.days.ago)
         reports = []
         disaster_reports.each do |report|
           reports.push(serialize_report_with_votes(report))
@@ -48,7 +48,7 @@ module Api
       end
 
       def pending_reports
-        reports = DisasterReport.includes(:user).where(approved: false)
+        reports = DisasterReport.includes(:user).where(approved: false).where('date_occured > ?', 30.days.ago)
         arr = []
         reports.each do |r|
           arr.push(serialize_report_with_votes(r))

@@ -4,7 +4,7 @@ module Api
       before_action :authenticate_admin!
 
       def index
-        reports = DisasterReport.includes(:user).where(approved: true)
+        reports = DisasterReport.includes(:user).where(approved: true).where('date_occured > ?', 30.days.ago)
         arr = []
         reports.each do |r|
           arr.push(serialize_report(r))
@@ -19,7 +19,7 @@ module Api
       end
 
       def pending_reports
-        reports = DisasterReport.includes(:user).where(approved: false)
+        reports = DisasterReport.includes(:user).where(approved: false).where('date_occured > ?', 30.days.ago)
         arr = []
         reports.each do |r|
           arr.push(serialize_report(r))
